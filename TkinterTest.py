@@ -14,13 +14,13 @@ def mainMenu():
     LMain = Label(top, text = "B5 GUI Projects", bg = "gold")
     LMain.grid(column = 2, row = 1)
         
-    B1Main = Button(text = "Week 1", bg = "LightGoldenrod2", command = week1)
+    B1Main = Button(text = "Week 1", bg = "LightGoldenrod2", command = week1, bd = 6)
     B1Main.grid(column = 2, row = 2)
     
-    B2Main = Button(text = "Week 2", bg = "LightGoldenrod2", command = week2)
+    B2Main = Button(text = "Week 2", bg = "LightGoldenrod2", command = week2, bd = 6)
     B2Main.grid(column = 2, row = 3) 
 
-    B3Main = Button(text = "Week 3", bg = "LightGoldenrod2")
+    B3Main = Button(text = "Week 3", bg = "LightGoldenrod2", bd = 6)
     B3Main.grid(column = 2, row = 4)
 
 
@@ -54,13 +54,13 @@ def week1():
     E1 = Entry(top, bd = 5)
     E1.grid(column = 0, row = 2)
 
-    B1 = Button(text = "    Print Your Playlist   ", bg = "LightGoldenRod2", command = results)
+    B1 = Button(text = "    Print Your Playlist   ", bg = "LightGoldenRod2", command = results, bd = 6)
     B1.grid(column = 0, row = 3)
 
-    B2 = Button(text = " + ", bg = "LightGoldenrod2", command = addToList)
+    B2 = Button(text = " + ", bg = "LightGoldenrod2", command = addToList, bd = 6)
     B2.grid(column = 1, row = 2)
 
-    B3 = Button(text = "   Export List  ", bg = "LightGoldenrod2", command = exportList)
+    B3 = Button(text = "   Export List  ", bg = "LightGoldenrod2", command = exportList, bd = 6)
     B3.grid(column = 0, row = 4)
 
     BClear = Button(text = "Main Menu", bg = "LightGoldenrod2", command = clearWindow)
@@ -69,25 +69,21 @@ def week1():
 
 def week2():
     def rollDice():
-        #Update variable data
         dieType = E1W2.get()
         rollTimes = E2W2.get()
 
-        #clear window after entry data
         clearWindow()
 
-        #calculate dice rolls
         for x in range(0, int(rollTimes)):
             myRolls.append(random.randint(1,int(dieType)))
-        
-        #display dice rolls and present exit button
+       
         L4W2 = Label(top, text = "Here are your rolls!", bg = "LightGoldenrod2")
         L4W2.grid(column = 0, row = 1)
         
-        L5W2 = Label(top, text = "{}".format(myRolls), bg = "LightGoldenrod2")
+        L5W2 = Label(top, text = "{}".format(myRolls), bg = "gold")
         L5W2.grid(column = 0, row = 2)
         
-        B2W2 = Button(top, text = "Main Menu", bg = "LightGoldenrod2", command = mainMenu)
+        B2W2 = Button(top, text = "Main Menu", bg = "LightGoldenrod2", command = mainMenu, bd = 6)
         B2W2.grid(column = 0, row = 3)
         
     clearWindow()
@@ -107,13 +103,11 @@ def week2():
     E2W2 = Entry(top, bd = 5)
     E2W2.grid(column = 2, row = 3)
 
-    B1W2 = Button(text = "Roll!", bg = "LightGoldenrod2", command = rollDice)
+    B1W2 = Button(text = "Roll!", bg = "LightGoldenrod2", command = rollDice, bd = 8)
     B1W2.grid(column = 1, row = 4)
 
-    #To add: roll function and exit button for main menu
   
-
-
+  
 if __name__ == "__main__":
     mainMenu()
     top.mainloop()
