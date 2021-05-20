@@ -6,7 +6,10 @@ playlistList = []
 myRolls = []
 rollTimes = 0
 dieType = 0
-
+numberList = []
+customNumber = 0
+howMany = 0
+amountNumber = 0
 
 def mainMenu():
     clearWindow()
@@ -20,13 +23,27 @@ def mainMenu():
     B2Main = Button(text = "Week 2", bg = "LightGoldenrod2", command = week2, bd = 6)
     B2Main.grid(column = 2, row = 3) 
 
-    B3Main = Button(text = "Week 3", bg = "LightGoldenrod2", bd = 6)
+    B3Main = Button(text = "Week 3", bg = "LightGoldenrod2", bd = 6, command = week3)
     B3Main.grid(column = 2, row = 4)
+
+
+def addNumber():
+    newNumber = E1W3.get()
+    numberList.append(newNumber)
+    E1W3.delete(0, END)
 
 
 def results():
     print(playlistList)
 
+
+def clearData():
+    yes
+    
+
+def printList():
+    print(NumberList)
+    
 
 def addToList():
     newValue = E1.get()
@@ -106,7 +123,54 @@ def week2():
     B1W2 = Button(text = "Roll!", bg = "LightGoldenrod2", command = rollDice, bd = 8)
     B1W2.grid(column = 1, row = 4)
 
-  
+
+def week3():
+    def addABunch():
+        clearWindow()
+
+        L3W3 = Label(top, text = "Add a LOT of Numbers", bg =  "gold")
+        L3W3.grid(column = 2, row = 1)
+
+        E2W3 = Entry(top, bd = 6)
+        E2W3.grid(column = 1, row = 2)
+
+        E3W3 = Entry(top, bd = 6)
+        E3W3.grid(column= 3, row = 2)
+    def addCustom():
+        E1W3 = Entry(top, bd = 6)
+        E1W3.grid(column = 1, row = 2)
+
+        customNumber = E1W3.get()
+
+        clearWindow()
+
+        L2W3 = Label(top, text = "Add a Number!", bg = "gold")
+        L2W3.grid(column = 1, row = 1)
+
+        B5W3 = Button(text = "  +  ", bg = "LightGoldenrod2", command = addNumber, bd = 4)
+        B5W3.grid(column = 2, row = 2)
+
+        B4W3 = Button(text = "Back to Menu", bg = "LightGoldenrod2", command = week3, bd = 4)
+        B4W3.grid(column = 1, row = 3)
+
+
+    E1W3.get()
+    
+
+    clearWindow()
+
+    L1W3 = Label(top, text = "List Program", bg = "gold")
+    L1W3.grid(column = 1, row = 1)
+
+    B1W3 = Button(text = "Add a Bunch", bg = "LightGoldenrod2", command = addABunch, bd = 4)
+    B1W3.grid(column = 1, row = 2)
+
+    B2W3 = Button(text = "Add Custom", bg = "LightGoldenrod2", command = addCustom, bd = 4)
+    B2W3.grid(column = 1, row = 3)
+
+    B3W3 = Button(text = "Main Menu", bg = "LightGoldenrod2", command = mainMenu, bd = 4)
+    B3W3.grid(column = 1, row = 4)
+    
   
 if __name__ == "__main__":
     mainMenu()
