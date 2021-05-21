@@ -28,7 +28,7 @@ def mainMenu():
 
 
 def addNumber():
-    newNumber = E1W3.get()
+    newNumber = E2W3.get()
     numberList.append(newNumber)
     E1W3.delete(0, END)
 
@@ -37,8 +37,8 @@ def results():
     print(playlistList)
 
 
-def clearData():
-    yes
+def clearList():
+    numberList.clear()
     
 
 def printList():
@@ -126,36 +126,48 @@ def week2():
 
 def week3():
     def addABunch():
+        def addToList():
+            howMany = E2W3.get()
+            amountNumber = E3W3.get()
+                
+            clearWindow()
+
+            for x in range(0, int(howMany)):
+                numberList.append(random.randint(1, int(amountNumber)))
+
         clearWindow()
 
         L3W3 = Label(top, text = "Add a LOT of Numbers", bg =  "gold")
         L3W3.grid(column = 2, row = 1)
 
+        L4W3 = Label(top, text = "How many numbers?", bg = "gold")
+        L4W3.grid(column = 1, row = 2)
+
+        L5W3 = Label(top, text = "How high should the numbers go?", bg = "gold")
+        L5W3.grid(column = 3, row = 2)
+
         E2W3 = Entry(top, bd = 6)
-        E2W3.grid(column = 1, row = 2)
+        E2W3.grid(column = 1, row = 3)
 
         E3W3 = Entry(top, bd = 6)
-        E3W3.grid(column= 3, row = 2)
+        E3W3.grid(column= 3, row = 3)
+
+        B7W3 = Button(text = "Add Numbers!", bg = "LightGoldenrod2", command = addNumber, bd = 4)
+        B7W3.grid(column = 2, row = 4)
     def addCustom():
-        E1W3 = Entry(top, bd = 6)
-        E1W3.grid(column = 1, row = 2)
-
-        customNumber = E1W3.get()
-
         clearWindow()
 
         L2W3 = Label(top, text = "Add a Number!", bg = "gold")
         L2W3.grid(column = 1, row = 1)
+
+        E1W3 = Entry(top, bd = 5)
+        E1W3.grid(column = 1, row = 2)
 
         B5W3 = Button(text = "  +  ", bg = "LightGoldenrod2", command = addNumber, bd = 4)
         B5W3.grid(column = 2, row = 2)
 
         B4W3 = Button(text = "Back to Menu", bg = "LightGoldenrod2", command = week3, bd = 4)
         B4W3.grid(column = 1, row = 3)
-
-
-    E1W3.get()
-    
 
     clearWindow()
 
@@ -168,8 +180,14 @@ def week3():
     B2W3 = Button(text = "Add Custom", bg = "LightGoldenrod2", command = addCustom, bd = 4)
     B2W3.grid(column = 1, row = 3)
 
+    B6W3 = Button(text = "Clear List", bg = "LightGoldenrod2", command = clearList, bd = 4)
+    B6W3.grid(column = 1, row = 4)
+
     B3W3 = Button(text = "Main Menu", bg = "LightGoldenrod2", command = mainMenu, bd = 4)
-    B3W3.grid(column = 1, row = 4)
+    B3W3.grid(column = 2, row = 1)
+
+    B8W3 = Button(text = "Print List", bg = "LightGoldenrod2", command = printList, bd = 4)
+    B8W3.grid(column = 1, row = 5)
     
   
 if __name__ == "__main__":
